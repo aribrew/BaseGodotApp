@@ -1,3 +1,5 @@
 _old/
 _ignore/
 android/build/libs
+.godot/shader_cache
+.godot_*_path

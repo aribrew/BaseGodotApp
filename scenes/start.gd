@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready () -> void:
 	print ("Hello world!")
+	print (DisplayServer.screen_get_size())
 
 	
 func _draw () -> void:
