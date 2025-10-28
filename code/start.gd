@@ -5,8 +5,20 @@ extends Node2D
 
 func _ready () -> void:
 	print ("Hello world!")
+
 	var img = Image.new()
 
+	# Width, Height, create mipmaps, color format
+	img.create_empty (256, 256, false, Image.FORMAT_RGB8)
+	img.fill (Color.RED)
+    
+	var tex = ImageTexture.create_from_image (img)
+
+	var sprite = Sprite2D.new()
+	sprite.texture = tex
+
+	self.add_child (sprite)
+	
 	
 func _draw () -> void:
 	pass # Used to draw things programatically
