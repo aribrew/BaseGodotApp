@@ -4,20 +4,32 @@ extends Node2D
 
 
 func _ready () -> void:
-	print ("Hello world!")
+	var img = Image.new ()
 
-	var img = Image.new()
-
+	var screen_width = DisplayServer.screen_get_size()[0]
+	var screen_height = DisplayServer.screen_get_size()[1]
+	
 	# Width, Height, create mipmaps, color format
-	img.create_empty (256, 256, false, Image.FORMAT_RGB8)
+	img = Image.create_empty (screen_width, 
+	                          screen_height, 
+	                          false, 
+	                          Image.FORMAT_RGB8)
 	img.fill (Color.RED)
     
 	var tex = ImageTexture.create_from_image (img)
 
-	var sprite = Sprite2D.new()
+	var sprite = Sprite2D.new ()
 	sprite.texture = tex
 
+	var theme = Theme.new ()
+	theme.set_font_size ("font_size", "Label", 50)
+
+	var text = Label.new ()
+	text.text = "Hello world!"
+	text.theme = theme
+
 	self.add_child (sprite)
+	self.add_child (text)
 	
 	
 func _draw () -> void:
