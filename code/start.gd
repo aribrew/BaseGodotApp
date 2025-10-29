@@ -38,8 +38,6 @@ func _ready () -> void:
 	self.add_child (sprite)
 	self.add_child (text)
 
-	sprite.position.x += 200
-	
 	
 func _draw () -> void:
 	pass # Used to draw things programatically
