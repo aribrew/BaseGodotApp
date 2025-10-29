@@ -1,16 +1,31 @@
 extends Node2D
 
 
+func map_action_key (action: String,
+                     key: Key,
+                     ctrl: bool = false, 
+                     alt: bool = false,
+                     shift: bool = false) -> void:
+
+	var key_event = InputEventKey.new ()
+
+	if not InputMap.has_action (action):
+		print ("Created new action '" + action + "'.")
+		InputMap.add_action (action)
+
+	key_event.keycode = key
+	key_event.ctrl_pressed = ctrl
+	key_event.alt_pressed = alt
+	key_event.shift_pressed = shift
+
+	InputMap.action_add_event (action, key_event)
+
+	print ("Registered '" + str(key_event) + "' to '" + action + "'.")
 
 
 func _ready () -> void:
-	InputMap.add_action ("quit")
+	map_action_key ("quit", KEY_ESCAPE)
 
-	var key_event = InputEventKey.new ()
-	key_event.keycode = KEY_ESCAPE
-
-	InputMap.action_add_event ("quit", key_event)
-    
 	var img = Image.new ()
 
 	var screen_width = DisplayServer.screen_get_size()[0]
@@ -27,6 +42,7 @@ func _ready () -> void:
 
 	var sprite = Sprite2D.new ()
 	sprite.texture = tex
+	sprite.centered = false
 
 	var theme = Theme.new ()
 	theme.set_font_size ("font_size", "Label", 50)
