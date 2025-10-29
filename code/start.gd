@@ -4,6 +4,13 @@ extends Node2D
 
 
 func _ready () -> void:
+	InputMap.add_action ("quit")
+
+	var key_event = InputEventKey.new ()
+	key_event.keycode = KEY_ESCAPE
+
+	InputMap.action_add_event ("quit", key_event)
+    
 	var img = Image.new ()
 
 	var screen_width = DisplayServer.screen_get_size()[0]
@@ -30,6 +37,8 @@ func _ready () -> void:
 
 	self.add_child (sprite)
 	self.add_child (text)
+
+	sprite.position.x += 200
 	
 	
 func _draw () -> void:
@@ -43,9 +52,10 @@ func _draw () -> void:
 # _unhandled_key_input filters all events except keyboard ones.
 # 
 # Use _input by default, unless you think you need any of the others.
-	
+
 func _input(event: InputEvent) -> void:
-	pass
+	if event.is_action_pressed ("quit"):
+		quit ()
 
 
 func _unhandled_input (event: InputEvent) -> void:
@@ -62,3 +72,14 @@ func _process (delta: float) -> void:
 	
 func _physics_process (delta: float) -> void:
 	pass # Update physics here
+
+
+func _notification (what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		quit ()
+        
+
+# Closes application
+func quit () -> void:
+	get_tree().quit()
+
