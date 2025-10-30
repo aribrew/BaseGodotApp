@@ -3,7 +3,6 @@ extends Node
 const Types = preload ("res://code/helpers/Types.gd")
 const DisplayHelpers = preload ("res://code/helpers/Display.gd")
 const InputHelpers = preload ("res://code/helpers/Input.gd")
-const SystemHelpers = preload ("res://code/helpers/System.gd")
 
 var text: Label
 var text_move_speed: int = 50
@@ -12,8 +11,6 @@ var text_move_speed: int = 50
 
 
 func _ready () -> void:
-    InputHelpers.map_action_key ("quit", KEY_ESCAPE)
-	InputHelpers.map_action_key ("quit", KEY_Q, true)
 	InputHelpers.map_action_key ("up", KEY_UP)
 	InputHelpers.map_action_key ("down", KEY_DOWN)
 	InputHelpers.map_action_key ("left", KEY_LEFT)   
@@ -43,11 +40,6 @@ func _ready () -> void:
 
 	self.add_child (sprite)
 	self.add_child (text)
-    
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed ("quit"):
-		SystemHelpers.quit ()
 
 	 
 func _process (delta: float) -> void:

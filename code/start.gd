@@ -1,14 +1,19 @@
 extends Node
 
+const InputHelpers = preload ("res://code/helpers/Input.gd")
+
 
 
 
 func _ready () -> void:
-	pass
+	InputHelpers.map_action_key ("quit", KEY_ESCAPE)
+	InputHelpers.map_action_key ("quit", KEY_Q, true)
+
 	
 
 func _input(event: InputEvent) -> void:
-	pass
+	if event.is_action_pressed ("quit"):
+		GlobalSpace.quit ()
 
 	 
 func _process (delta: float) -> void:

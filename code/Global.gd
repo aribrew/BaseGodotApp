@@ -2,9 +2,24 @@ extends Node
 
 class_name GlobalSpace
 
-# This is a special script aimed to contain functions that need to be called
-# in any scene. It will always autoload.
+# This script is auto loaded, and all its functionality is available to the
+# entire project.
+
+
+
+
+var start = preload ("res://code/start.gd")
+
+
+# Allows accessing the root node statically
+static var project = null
+
+
+func _ready () -> void:
+	start.new ()
+	GlobalSpace.project = get_tree()
+
 
 # Closes application
-func quit () -> void:
-	get_tree().quit()
+static func quit () -> void:
+	GlobalSpace.project.quit()
