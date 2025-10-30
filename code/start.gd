@@ -1,7 +1,5 @@
 extends Node
 
-const SystemHelpers = preload ("res://code/helpers/System.gd")
-
 
 
 
@@ -19,4 +17,4 @@ func _process (delta: float) -> void:
 
 func _notification (what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		SystemHelpers.quit ()
+		GlobalSpace.quit ()
