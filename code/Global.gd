@@ -16,7 +16,6 @@ static var project = null
 
 
 func _ready () -> void:
-	start.new ()
 	GlobalSpace.project = get_tree()
 
 

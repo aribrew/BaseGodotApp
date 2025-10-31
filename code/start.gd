@@ -1,6 +1,7 @@
-extends Node
+extends Node2D
 
 const InputHelpers = preload ("res://code/helpers/Input.gd")
+const HelloWorld = preload ("res://code/examples/helloworld.gd")
 
 
 
@@ -9,6 +10,7 @@ func _ready () -> void:
 	InputHelpers.map_action_key ("quit", KEY_ESCAPE)
 	InputHelpers.map_action_key ("quit", KEY_Q, true)
 
+	self.add_child (HelloWorld.new())
 	
 
 func _input(event: InputEvent) -> void:

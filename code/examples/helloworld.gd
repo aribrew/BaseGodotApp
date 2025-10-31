@@ -1,4 +1,6 @@
-extends Node
+extends Node2D
+
+class_name HelloWorld
 
 const Types = preload ("res://code/helpers/Types.gd")
 const DisplayHelpers = preload ("res://code/helpers/Display.gd")
@@ -24,7 +26,7 @@ func _ready () -> void:
 										Image.FORMAT_RGB8)
 
 	img.fill (Color.BLACK)
-    
+	
 	var tex = ImageTexture.create_from_image (img)
 
 	var sprite = Sprite2D.new ()
@@ -43,15 +45,14 @@ func _ready () -> void:
 
 	 
 func _process (delta: float) -> void:
-    if Input.is_action_pressed ("up"):
-    	text.position.y -= (text_move_speed * delta)
+	if Input.is_action_pressed ("up"):
+		text.position.y -= (text_move_speed * delta)
 
-    if Input.is_action_pressed ("down"):
-    	text.position.y += (text_move_speed * delta)
+	if Input.is_action_pressed ("down"):
+		text.position.y += (text_move_speed * delta)
 
-    if Input.is_action_pressed ("left"):
-    	text.position.x -= (text_move_speed * delta)
-        		
-    if Input.is_action_pressed ("right"):
-    	text.position.x += (text_move_speed * delta)
-
+	if Input.is_action_pressed ("left"):
+		text.position.x -= (text_move_speed * delta)
+				
+	if Input.is_action_pressed ("right"):
+		text.position.x += (text_move_speed * delta)
