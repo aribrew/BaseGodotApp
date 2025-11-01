@@ -2,6 +2,7 @@ extends Node
 
 export var interval: float = 1.0
 export var repeat: int = -1
+export signal on_elapsed
 
 var enabled: bool = false
 var elapsed: float = 1.0
@@ -40,6 +41,8 @@ func _process (delta: float) -> void:
     	elapsed += delta
 
     	if elapsed >= interval:
+    		elapsed.emit ()
+    		
     		if repeat >= 1:
     			laps += 1
 
