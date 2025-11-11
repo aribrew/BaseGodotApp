@@ -5,25 +5,34 @@ class_name TimerExample
 
 
 
-var timer: Timer
-var countdown: int = 10
+var countdown: Timer
+var total_ticks: int = 10
+var current_ticks: int = 0
 
 
 func _ready () -> void:
-	timer = Timer.new ()
-	timer.wait_timer = 1.0
-	timer.one_shot = false
-	timer.timeout.connect (update_countdown)
+	countdown = Timer.new ()
+	add_child (countdown)
+	
+	countdown.wait_time = 1.0
+	countdown.one_shot = false
+	countdown.timeout.connect (timer_tick)
 
-	timer.start ()
+	print ("Stopping in " + str(total_ticks) + " second/s.\n")
+	
+	countdown.start ()
 
 
-func update_countdown () -> void:
-	countdown -= 1
+func timer_tick () -> void:
+	current_ticks += 1
 
-	print ("Counting: " + str(countdown))
+	print (str(total_ticks - current_ticks))
+	
+	if (current_ticks == total_ticks):
+		time_out ()
 
-	if countdown == 0:
-		timer.stop ()
 
+func time_out () -> void:
+	countdown.stop ()
+	print ("\nTimeout!\n")
 

@@ -1,11 +1,30 @@
 #!/bin/bash
 
+usage()
+{
+    echo "Usage:"
+    echo "- test.sh: Executes the current project"
+    echo "- test.sh <Godot path>: Sets the given Godot exec as the default."
+    echo "                        If valid, executes the current project."
+    echo ""
+}
+
+
+
+
 SCRIPT_HOME=$(realpath $(dirname $0))
 
 
 GODOT_PATH_FILE="$SCRIPT_HOME/.godot_"
 GODOT_PATH_FILE+=$(uname -n)
 GODOT_PATH_FILE+="_path"
+
+
+if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]];
+then
+    usage
+    exit 1
+fi
 
 
 if ! [[ "$1" == "" ]]
