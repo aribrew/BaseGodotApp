@@ -15,17 +15,17 @@ var tilemap: Array
 
 
 func _ready () -> void:
-	var img = Image.new().create_empty (tile_w,
-										tile_h,
-										false,
-										Image.FORMAT_RGB8)
+	var img = Image.create_empty (tile_w,
+								  tile_h,
+								  false,
+								  Image.FORMAT_RGB8)
 	img.fill (Color.RED)
 
 
-	var grid = Image.new().create_empty ((tile_w * tilemap_w), 
-										 (tile_h * tilemap_h),
-										 false,
-										 Image.FORMAT_RGB8)
+	var grid = Image.create_empty ((tile_w * tilemap_w), 
+								   (tile_h * tilemap_h),
+									false,
+									Image.FORMAT_RGB8)
 
 	grid.blend_rect (img,
 					 Rect2i (Vector2i (0,0), img.get_size()),
@@ -40,4 +40,3 @@ func _ready () -> void:
 	add_child (sprite)
 	
 	print ("Tile map example.")
-

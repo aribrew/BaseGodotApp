@@ -35,4 +35,3 @@ func timer_tick () -> void:
 func time_out () -> void:
 	countdown.stop ()
 	print ("\nTimeout!\n")
-

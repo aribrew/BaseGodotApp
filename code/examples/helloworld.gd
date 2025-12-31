@@ -1,11 +1,5 @@
 extends Node2D
 
-class_name HelloWorld
-
-const Types = preload ("res://code/helpers/Types.gd")
-const DisplayHelpers = preload ("res://code/helpers/Display.gd")
-const InputHelpers = preload ("res://code/helpers/Input.gd")
-
 var text: Label
 var text_move_speed: int = 50
 
@@ -20,10 +14,10 @@ func _ready () -> void:
 
 	var screen_res = DisplayHelpers.resolution ()
 	
-	var img = Image.new().create_empty (screen_res.width,
-										screen_res.height,
-										false,
-										Image.FORMAT_RGB8)
+	var img = Image.create_empty (screen_res.width,
+								  screen_res.height,
+								  false,
+								  Image.FORMAT_RGB8)
 
 	img.fill (Color.BLACK)
 	

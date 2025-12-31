@@ -1,19 +1,14 @@
 extends Node2D
 
-const InputHelpers = preload ("res://code/helpers/Input.gd")
-
-#const HelloWorld = preload ("res://code/examples/helloworld.gd")
-#const TimerExample = preload ("res://code/examples/timer_example.gd")
-const Example = preload ("res://code/examples/tilemap_example.gd")
+# Loads an external script is needed before instancing it
+const HelloWorld = preload ("res://code/examples/helloworld.gd")
 
 
 func _ready () -> void:
 	InputHelpers.map_action_key ("quit", KEY_ESCAPE)
 	InputHelpers.map_action_key ("quit", KEY_Q, true)
 
-#	self.add_child (HelloWorld.new())
-#	self.add_child (TimerExample.new())
-	self.add_child (Example.new())
+	self.add_child (HelloWorld.new())
 
 
 func _input(event: InputEvent) -> void:
@@ -21,7 +16,7 @@ func _input(event: InputEvent) -> void:
 		GlobalSpace.quit ()
 
  
-func _process (delta: float) -> void:
+func _process (_delta: float) -> void:
 	pass
 
 
