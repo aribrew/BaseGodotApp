@@ -1,9 +1,13 @@
-_old/
-_ignore/
-android/build/libs
 .godot/**/*.cfg
 .godot/shader_cache/
 .godot/editor/
+
+android/build/libs/
+
 !.godot/**/*.uid
 !.godot/**/*.import
+
+_old/
+_ignore/
+
 .godot_*_path
