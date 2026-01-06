@@ -1,6 +1,6 @@
 .godot/**/*.cfg
 .godot/shader_cache/
-.godot/editor/
+.godot/editor/**
 
 android/build/libs/
 
