@@ -1,11 +1,14 @@
 .godot/**/*.cfg
 .godot/shader_cache/
 .godot/editor/**
+.godot/imported/**
 
 android/build/libs/
 
 !.godot/**/*.uid
 !.godot/**/*.import
+!.godot/.gdignore
+!.godot/uid_cache.bin
 
 _old/
 _ignore/
