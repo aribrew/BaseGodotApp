@@ -1,8 +1,6 @@
 class_name DisplayHelpers
 
 
-
-
 static func resolution () -> Types.Size:
 	var screen_size = DisplayServer.screen_get_size()
 
@@ -11,3 +9,7 @@ static func resolution () -> Types.Size:
 	res.height = screen_size[1]
 
 	return res
+
+
+static func set_clear_color (color: Color) -> void:
+	RenderingServer.set_default_clear_color (color)

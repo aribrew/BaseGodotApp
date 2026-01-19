@@ -6,7 +6,7 @@ extends Node
 
 
 func _ready () -> void:
-	SceneManager.Init ()
+	SceneManager.init ()
 	
 	InputHelpers.map_action_key ("quit", KEY_ESCAPE)
 	InputHelpers.map_action_key ("quit", KEY_Q, true)
@@ -14,7 +14,7 @@ func _ready () -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed ("quit"):
-		Application.Quit ()
+		Application.quit ()
 
 	elif event is InputEventMouseButton:
 		if event.pressed:
@@ -35,21 +35,21 @@ func _process (_delta: float) -> void:
 
 func _notification (what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		Application.Quit ()
+		Application.quit ()
 
 
-func CurrentScene () -> Node:
-	return SceneManager.CurrentScene()
+func current_scene () -> Node:
+	return SceneManager.current_scene()
 
 
-func Pause ():
-	CurrentScene().get_tree().paused = true
+func pause ():
+	current_scene().get_tree().paused = true
 	
 
-func Resume ():
-	CurrentScene().get_tree().paused = false
+func resume ():
+	current_scene().get_tree().paused = false
 
 
 # Closes application
-func Quit () -> void:
-	CurrentScene().get_tree().quit()
+func quit () -> void:
+	current_scene().get_tree().quit()

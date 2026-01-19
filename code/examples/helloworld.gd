@@ -4,37 +4,18 @@ var text: Label
 var text_move_speed: int = 50
 
 
-
-
 func _ready () -> void:
 	InputHelpers.map_action_key ("up", KEY_UP)
 	InputHelpers.map_action_key ("down", KEY_DOWN)
 	InputHelpers.map_action_key ("left", KEY_LEFT)   
 	InputHelpers.map_action_key ("right", KEY_RIGHT)
-
-	var screen_res = DisplayHelpers.resolution ()
 	
-	var img = Image.create_empty (screen_res.width,
-								  screen_res.height,
-								  false,
-								  Image.FORMAT_RGB8)
-
-	img.fill (Color.BLACK)
+	DisplayHelpers.set_clear_color (Color.BLACK)
 	
-	var tex = ImageTexture.create_from_image (img)
-
-	var sprite = Sprite2D.new ()
-	sprite.texture = tex
-	sprite.centered = false
-
-	var theme = Theme.new ()
-	theme.set_font_size ("font_size", "Label", 50)
-
 	text = Label.new ()
 	text.text = "Hello world!"
-	text.theme = theme
-
-	self.add_child (sprite)
+	text.add_theme_font_size_override ("font_size", 50)
+	
 	self.add_child (text)
 
 	 

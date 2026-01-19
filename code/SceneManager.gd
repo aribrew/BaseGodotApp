@@ -33,17 +33,17 @@ func _process (_delta: float) -> void:
 		__scene_change_phase_2 = true
 		
 
-func CurrentScene ():
+func current_scene ():
 	return __current_scene
 	
 	
-func Init ():
+func init ():
 	__current_scene = get_tree().current_scene
 	print (str(__current_scene))
 
 
 ## Loads a previously registered scene in a new node
-func Instantiate (scene_name, node_name) -> bool:
+func instantiate_scene (scene_name, node_name) -> bool:
 	if not __scenes.has (scene_name):
 		return false
 		
@@ -60,7 +60,7 @@ func Instantiate (scene_name, node_name) -> bool:
 
 
 ## Loads a previously registered scene replacing current one
-func Load (scene_name) -> bool:
+func load_scene (scene_name) -> bool:
 	if not __scenes.has (scene_name):
 		return false
 		
@@ -71,7 +71,7 @@ func Load (scene_name) -> bool:
 
 
 ## Register a scene file for later use
-func Register (scene_name, scene_file) -> bool:
+func register_scene (scene_name, scene_file) -> bool:
 	if not ResourceLoader.exists (scene_file):
 		return false
 	
@@ -83,5 +83,5 @@ func Register (scene_name, scene_file) -> bool:
 	return true
 
 
-func SceneNames () -> Array:
+func scene_names () -> Array:
 	return __scenes.keys()
