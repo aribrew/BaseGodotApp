@@ -10,8 +10,6 @@ func _ready () -> void:
 	
 	InputHelpers.map_action_key ("quit", KEY_ESCAPE)
 	InputHelpers.map_action_key ("quit", KEY_Q, true)
-	
-	FileSystemHelpers.test()
 
 
 func _input(event: InputEvent) -> void:
