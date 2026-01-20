@@ -5,7 +5,9 @@ class_name FileSystemHelpers
 
 class DirEntry:
 	var __path: String = ""
+	var __size: int = -1
 	var __is_dir: bool = false
+	var __is_executable: bool = false
 	var __is_valid: bool = false
 	
 	func _init (path: String) -> void:
@@ -19,11 +21,26 @@ class DirEntry:
 			var file = FileAccess.open (path, FileAccess.READ)
 			
 			if file != null:
-				__is_valid = true
-				file.close()
+				__path = file.get_path_absolute ()
+				__size = FileAccess.get_size (__path)
 				
-
-
+				var magic_number = []
+				magic_number.append (file.get_8())
+				magic_number.append (file.get_8())
+				magic_number.append (file.get_8())
+				magic_number.append (file.get_8())
+				file.close ()
+				
+				if (magic_number[0] == 77) and (magic_number[1] == 90):
+					__is_executable = true # Windows EXE magic number found
+				
+				if (magic_number[0] == 127) and (magic_number[1] == 69) and \
+				   (magic_number[2] == 76) and(magic_number[3] == 70):
+					__is_executable = true # Linux ELF magic number found
+					
+				__is_valid = true
+				
+				
 static func list_dir (path: String):
 	if path == null:
 		return null
