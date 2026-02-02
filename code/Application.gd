@@ -4,6 +4,8 @@ extends Node
 # This script is auto loaded, and all its functionality
 # is available to the entire project.
 
+# Use this dictionary for registering project-wide variables
+var GlobalVars = {}
 
 func _ready () -> void:
 	SceneManager.init ()
