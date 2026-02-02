@@ -1,0 +1,52 @@
+Tilemaps
+---------------------------------------
+Tilemaps are a bit tricky.
+
+We first need a TileSetAtlas:
+
+var tileset_source: TileSetAtlasSource = TileSetAtlasSource.new ()
+tileset_source.texture = img_tex
+tileset_source.texture_region_size = Vector2i (tile_w, tile_h)
+tileset_source.create_tile (Vector2i (x, y))
+
+Where:
+- img_tex: ImageTexture containing our tiles
+- tile_w, tile_h: The size of each tile
+- create_tile (Vector2i (x, y)): Were, in our tileset, will be our new tile
+
+Here a tileset_source can be seen as our tile 'palette'.
+
+
+The next thing we need is a TileSet:
+
+var tileset: TileSet = TileSet.new()
+tileset.tile_size = Vector2i (tile_w, tile_h)
+var tileset_source_id = tileset.add_source (tileset_source)
+
+Attention: A TileSet isn't the same as a TileSetAtlasSource.
+If the second can be seen as the 'tile palette', the TileSet can be seen
+as a 'palette provider'.
+
+Here we can add more than one 'palette' with 'add_source', and the function
+will return an ID that we'll need soon.
+
+
+The last thing we need, the TileMap itself:
+
+var tilemap: TileMapLayer = TileMapLayer.new ()
+tilemap.tile_set = tileset
+
+This is the most simple thing as you see.
+
+
+We now add our tilemap to our scene, and 'paint' in it:
+
+add_child(tilemap)
+tilemap.set_cell (Vector2i (0,0), tileset_source_id , Vector2i(0,0))
+
+The set_cell requires basically 3 params:
+- The first Vector2i are the Tilemap coords where we are painting.
+- The second is the 'palette' ID to use, that we obtained before.
+- The last one is the coords of tile we are using to paint.
+
+==============================================================================

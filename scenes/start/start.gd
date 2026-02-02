@@ -15,7 +15,7 @@ func _ready () -> void:
 	SubScenes = $SubScenes
 	
 	SubScenes.add_child (HelloWorld.new())
-	
+
  
 func _process (_delta: float) -> void:
 	pass

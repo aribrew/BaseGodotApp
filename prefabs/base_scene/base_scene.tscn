@@ -10,3 +10,5 @@ script = ExtResource("1_judmk")
 [node name="World" type="Node2D" parent="." unique_id=1688541163]
 
 [node name="SubScenes" type="Node2D" parent="." unique_id=342374601]
+
+[node name="TiledBackground" type="TileMapLayer" parent="." unique_id=185304009]
