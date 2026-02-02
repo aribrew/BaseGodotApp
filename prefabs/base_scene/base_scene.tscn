@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://y6pabiksspyw"]
+
+[ext_resource type="Script" uid="uid://hotyyt7xkavl" path="res://prefabs/base_scene/base_scene.gd" id="1_judmk"]
+
+[node name="Root" type="Node2D" unique_id=189582828]
+script = ExtResource("1_judmk")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1709816733]
+
+[node name="World" type="Node2D" parent="." unique_id=1688541163]
+
+[node name="SubScenes" type="Node2D" parent="." unique_id=342374601]

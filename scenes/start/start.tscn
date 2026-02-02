@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://buwnmq21k303e"]
+[gd_scene format=3 uid="uid://buwnmq21k303e"]
 
 [ext_resource type="Script" uid="uid://bdwpqk6abqk4m" path="res://scenes/start/start.gd" id="1_662lp"]
 
-[node name="Root" type="Node2D"]
+[node name="Root" type="Node2D" unique_id=1599868939]
 script = ExtResource("1_662lp")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=610681546]
+
+[node name="World" type="Node2D" parent="." unique_id=324766083]
+
+[node name="SubScenes" type="Node2D" parent="." unique_id=492226373]
