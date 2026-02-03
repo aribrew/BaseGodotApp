@@ -3,17 +3,6 @@ extends Node2D
 class_name TilemapExample
 
 
-
-
-var tile_w: int = 32
-var tile_h: int = 32
-
-var tilemap_w: int = 64
-var tilemap_h: int = 32
-
-var tilemap: Array
-
-
 func _ready () -> void:
 	var img = Image.create_empty (tile_w,
 								  tile_h,

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cxogrb7luqjpq"]
+
+[ext_resource type="Script" uid="uid://ddlblec68uwkv" path="res://prefabs/tiled_background/TiledBackground.gd" id="1_62qvm"]
+
+[node name="Root" type="Node2D" unique_id=1164417789]
+script = ExtResource("1_62qvm")
+
+[node name="Layers" type="Node2D" parent="." unique_id=1553933978]
