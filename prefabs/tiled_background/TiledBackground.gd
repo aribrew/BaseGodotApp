@@ -18,15 +18,11 @@ func _ready () -> void:
 	
 	layers.add_child (tilemap)
 	
-	
-func add_tile_in ():
-	pass
-	
 
 func default_layer () -> TileMapLayer:
 	return get_node ("Layers/default")
-	
-	
+
+
 func layer (layer_name: String) -> TileMapLayer:
 	if not layer_exists (layer_name):
 		return null
@@ -66,6 +62,9 @@ func set_tile_size_for_layer (width: int,
 		tile_set.tile_size = Vector2i (width, height)
 		atlas.texture_region_size = Vector2i (width, height)
 		
+		if atlas.texture != null:
+			var texture_size: Vector2i = atlas.texture.get_size()
+			# TODO: Generate tiles
 		
 		
 		
